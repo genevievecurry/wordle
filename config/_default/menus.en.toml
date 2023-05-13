@@ -10,32 +10,47 @@
 # overridden by providing a weight value. The menu will then be
 # ordered by weight from lowest to highest.
 
-#[[main]]
-#  name = "Blog"
-#  pageRef = "posts"
-#  weight = 10
+[[main]]
+name = "About Me"
+pageRef = "about"
+weight = 10
 
-#[[main]]
-#  name = "Categories"
-#  pageRef = "categories"
-#  weight = 20
+[[main]]
+name = "Work"
+pageRef = "work"
+weight = 20
 
-#[[main]]
-#  name = "Tags"
-#  pageRef = "tags"
-#  weight = 30
+[[main]]
+name = "Hobby"
+pageRef = "hobby"
+weight = 30
 
-#[[main]]
-#  identifier = "search"
-#  weight = 99
-#  [main.params]
-#    action = "search"
+
+[[main]]
+identifier = "search"
+weight = 99
+[main.params]
+action = "search"
 
 # -- Footer Menu --
 # The footer menu is displayed at the bottom of the page, just before
 # the copyright notice. Configure as per the main menu above.
 
+
 # [[footer]]
-#   name = "Tags"
-#   pageRef = "tags"
-#   weight = 10
+# name = "GitHub"
+# url = "https://github.com/genevievecurry"
+# weight = 10
+# [footer.params]
+# icon = "github"
+# showName = false
+# target = "_blank"
+
+# [[footer]]
+# name = "LinkedIn"
+# url = "https://github.com/genevievecurry"
+# weight = 20
+# [footer.params]
+# icon = "linkedin"
+# showName = false
+# target = "_blank"
