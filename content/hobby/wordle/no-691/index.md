@@ -12,4 +12,4 @@ This is my very first Wordle guess sequence sent to the Midjourney bot as a prom
 
 The husky collection above is actually the second attempt at a prompt. When I sent the first one, using their `5.1` model, I didn't use commas, and the result favored the solution, broom, over the other words in the sequence.
 
-![Alt text](691_v1.jpg "Prompt: `husky react grind broom --v 5.1`")
+![Four somewhat photorealistic AI-generated images of brooms.](691-v1.jpg "Prompt: `husky react grind broom --v 5.1`")
