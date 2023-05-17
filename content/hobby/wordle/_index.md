@@ -1,6 +1,5 @@
 ---
 title: "Wordle Illustrated"
-showBreadcrumbs: true
 showSummary: true
 showTableOfContents: false
 showTaxonomies: true
@@ -12,8 +11,8 @@ articleGrid: false
 cascade:
   showDate: true
   showWordCount: false
-  showBreadcrumbs: true
   articleGrid: true
+  showSummary: false
 ---
 
 A collection of daily Wordle puzzles, solved by me and illustrated by Midjourney, using each of my guesses as a prompt.
