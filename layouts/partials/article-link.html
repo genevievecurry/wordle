@@ -48,7 +48,7 @@
   {{- $thumbnail := $images.GetMatch (.Params.thumbnail | default "*thumb*") }}
   {{- $feature := $images.GetMatch (.Params.feature | default "*feature*") | default $thumbnail }}
   {{- with $feature }}
-    <div class="grid grid-cols-[1fr,_190px]">
+    <div class="md:grid md:grid-cols-[1fr,_190px]">
       <div class="h-[212px]">
         <a class="flex h-full"
           href="{{ with $.Params.externalUrl }}
@@ -71,7 +71,7 @@
           />
         </a>
       </div>
-      <div class="pl-4 group is-hidden">
+      <div class="hidden pl-4 group is-hidden min-[450px]:visible">
         <a class="flex h-full"
           href="{{ with $.Params.externalUrl }}
             {{ . }}
