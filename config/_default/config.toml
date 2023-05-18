@@ -3,7 +3,7 @@
 # https://jpanther.github.io/congo/docs/getting-started/
 
 theme = "congo"
-baseURL = "https://boisterous-crisp-d87855.netlify.app/"
+baseURL = "https://wordle-illustrated.netlify.app/"
 defaultContentLanguage = "en"
 
 enableRobotsTXT = true
