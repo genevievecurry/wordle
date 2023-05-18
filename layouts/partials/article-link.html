@@ -1,40 +1,5 @@
-{{- $articleClass := "flex-row" }}
-{{- $thumbnailClass := "pe-4 sm:pe-6" }}
-{{ if $.Params.articleGrid | default ($.Site.Params.list.articleGrid | default false) }}
-  {{ $articleClass = "flex-col" }}
-  {{ $thumbnailClass = "pb-4" }}
-{{ end }}
-
-<article class="flex mt-6 max-w-prose {{ $articleClass }}">
-  {{- $images := $.Resources.ByType "image" }}
-  {{- $thumbnail := $images.GetMatch (.Params.thumbnail | default "*thumb*") }}
-  {{- $feature := $images.GetMatch (.Params.feature | default "*feature*") | default $thumbnail }}
-  {{- with $feature }}
-    <div class="flex-none {{ $thumbnailClass }}">
-      <a
-        href="{{ with $.Params.externalUrl }}
-          {{ . }}
-        {{ else }}
-          {{ $.RelPermalink }}
-        {{ end }}"
-        aria-label="{{ $.Title | emojify }}"
-      >
-        <img
-          alt="{{ $.Params.featureAlt | default $.Params.thumbnailAlt | default "" }}"
-          {{ if eq .MediaType.SubType "svg" }}
-            class="w-24 max-w-[6rem] max-h-[6rem] rounded-md sm:max-h-[10rem] sm:w-40
-            sm:max-w-[10rem]" src="{{ .RelPermalink }}"
-          {{ else }}
-            class="rounded-md w-80 sm:w-40" srcset="
-            {{- (.Fill "160x160 smart").RelPermalink }}
-            160w, {{- (.Fill "320x320 smart").RelPermalink }} 2x"
-            src="{{ (.Fill "160x160 smart").RelPermalink }}"
-          {{ end }}
-        />
-      </a>
-    </div>
-  {{- end }}
-  <div>
+<article class="flex flex-col p-4 border rounded-sm max-w-prose">
+  <div class="mb-4">
     <h3 class="flex items-center text-xl font-semibold">
       {{ with .Params.externalUrl }}
         <div>
@@ -57,7 +22,7 @@
         <a
           class="text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
           href="{{ .RelPermalink }}"
-          >{{ .Title | emojify }}</a
+          >{{ .Params.listTitle }}</a
         >
       {{ end }}
       {{ if and .Draft .Site.Params.article.showDraftLabel }}
@@ -78,4 +43,48 @@
       </div>
     {{ end }}
   </div>
+
+  {{- $images := $.Resources.ByType "image" }}
+  {{- $thumbnail := $images.GetMatch (.Params.thumbnail | default "*thumb*") }}
+  {{- $feature := $images.GetMatch (.Params.feature | default "*feature*") | default $thumbnail }}
+  {{- with $feature }}
+    <div class="grid grid-cols-[1fr,_190px]">
+      <div class="h-[212px]">
+        <a class="flex h-full"
+          href="{{ with $.Params.externalUrl }}
+            {{ . }}
+          {{ else }}
+            {{ $.RelPermalink }}
+          {{ end }}"
+          aria-label="{{ $.Title | emojify }}"
+        >
+          <img
+            alt="{{ $.Params.featureAlt | default $.Params.thumbnailAlt | default "" }}"
+            {{ if eq .MediaType.SubType "svg" }}
+              class="w-24 max-w-[6rem] max-h-[6rem] rounded-sm sm:max-h-[10rem] sm:w-40
+              sm:max-w-[10rem]" src="{{ .RelPermalink }}"
+            {{ else }}
+              class="object-cover w-full h-full rounded-sm" srcset="{{- (.Fill "160x160 smart").RelPermalink }}
+              160w, {{- (.Fill "500x500 smart").RelPermalink }} 2x"
+              src="{{ (.Fill "160x160 smart").RelPermalink }}"
+            {{ end }}
+          />
+        </a>
+      </div>
+      <div class="pl-4 group is-hidden">
+        <a class="flex h-full"
+          href="{{ with $.Params.externalUrl }}
+            {{ . }}
+          {{ else }}
+            {{ $.RelPermalink }}
+          {{ end }}"
+          aria-label="{{ $.Title | emojify }}"
+        >
+          {{ with $.Params.guesses }}
+            {{ partial "wordle.html" . }}
+          {{ end }}
+        </a>
+      </div>
+    </div>
+  {{- end }}
 </article>

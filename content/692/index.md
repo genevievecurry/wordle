@@ -1,8 +1,7 @@
 ---
-title: "#692: Snack"
+title: "#692"
+listTitle: "Wordle 692 4/6*"
 date: 2023-05-12
-draft: false
-description: "Wordle 692"
 coverCaption: "Prompt: `laugh, antsy, snare, snack --niji 5 --style scenic`"
 tags: ["Wordle", "Midjourney"]
 guesses: "laugh, antsy, snare, snack"

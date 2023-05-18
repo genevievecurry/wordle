@@ -21,7 +21,7 @@
         <div class="lg:flex">
           <div class="prose">
             <img
-              class="mb-6 -mt-4 rounded-md"
+              class="mb-6 rounded-sm"
               {{ if eq .MediaType.SubType "svg" }}
                 src="{{ .RelPermalink }}"
               {{ else }}
@@ -42,7 +42,11 @@
             {{ end }}
           </div>
           {{ with $.Params.guesses }}
-            {{ partial "wordle.html" . }}
+            <div class="max-w-prose">
+              <div class="w-[212px] py-4 m-auto lg:m-0 lg:px-4 lg:py-0 group article">
+                {{ partial "wordle.html" . }}
+              </div>
+            </div>
           {{ end }}
         </div>
       {{ end }}

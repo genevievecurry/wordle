@@ -1,8 +1,7 @@
 ---
 title: "#695: Canoe"
+listTitle: "Wordle 695 2/6*"
 date: 2023-05-15
-draft: false
-description: "Wordle 695"
 coverCaption: "Prompt: `house, canoe --niji 5 --style expressive`"
 tags: ["Wordle", "Midjourney"]
 guesses: "house, canoe"

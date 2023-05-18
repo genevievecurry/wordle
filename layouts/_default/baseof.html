@@ -15,9 +15,8 @@
   data-auto-appearance="{{ .Site.Params.autoSwitchAppearance | default "true" }}"
 >
   {{- partial "head.html" . -}}
-  {{ $backgroundImage := resources.Get .Site.Params.Background.image }}
   <body
-    class="flex flex-col m-auto text-lg leading-7 text-neutral-900 dark:text-neutral" style="background-image: url('{{ $backgroundImage.RelPermalink }}')"
+    class="flex flex-col m-auto text-lg leading-7 text-neutral-900 dark:text-neutral"
   >
     <div id="the-top" class="absolute flex self-center">
       <a
@@ -27,7 +26,7 @@
         >{{ i18n "nav.skip_to_main" }}</a
       >
     </div>
-    <div class="flex flex-col min-h-screen max-w-7xl bg-neutral dark:bg-neutral-800">
+    <div class="flex flex-col min-h-screen bg-neutral dark:bg-neutral-800">
       {{ $header := print "partials/header/" .Site.Params.header.layout ".html" }}
       {{ if templates.Exists $header }}
         {{ partial $header . }}

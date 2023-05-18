@@ -5,10 +5,7 @@
 {{ $solution := index (last 1 $guesses) 0 }}
 {{ $remaining := (len $guesses) | sub 6 }}
 
-
-<div class="py-4 lg:px-4">
-  <h4 class="mb-2 font-extrabold text-neutral-900 dark:text-neutral">{{ len $guesses }}/6*</h4>
-
+<div class="wordle-grid">
   <div class="grid gap-1 font-bold uppercase place-content-start">
   {{ range $guesses }}
     {{ $word := split . "" }}
@@ -17,12 +14,18 @@
         {{ if in $solution $letter }}
           {{ $solution_letters := split $solution "" }}
           {{ if eq (index $solution_letters $letter_index) $letter}}
-          <div class="flex items-center justify-center w-8 h-8 rounded-sm bg-primary-500 text-secondary-50">{{ $letter }}</div>
+          <div class="flex items-center justify-center w-8 h-8 rounded-sm bg-primary-500 text-secondary-50">
+            <span class="invisible group-[.article]:visible group-hover:visible">{{ $letter }}</span>
+          </div>
           {{ else }}
-            <div class="flex items-center justify-center w-8 h-8 rounded-sm bg-secondary-500 text-secondary-50">{{ $letter }}</div>
+            <div class="flex items-center justify-center w-8 h-8 rounded-sm bg-secondary-500 text-secondary-50">
+              <span class="invisible group-[.article]:visible group-hover:visible">{{ $letter }}</span>
+            </div>
           {{ end }}
         {{ else }}
-          <div class="flex items-center justify-center w-8 h-8 rounded-sm bg-neutral-600 text-neutral-50">{{ $letter }}</div>
+          <div class="flex items-center justify-center w-8 h-8 rounded-sm bg-neutral-600 text-neutral-50">
+            <span class="invisible group-[.article]:visible group-hover:visible">{{ $letter }}</span>
+          </div>
         {{ end }}
       {{ end }}
     </div>
@@ -35,4 +38,6 @@
     </div>
   {{ end }}
   </div>
+
+  <span class="hidden mb-2 font-extrabold text-neutral-900 dark:text-neutral">{{ len $guesses }}/6*</span>
 </div>

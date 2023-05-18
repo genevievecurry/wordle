@@ -3,7 +3,7 @@
 # https://jpanther.github.io/congo/docs/getting-started/
 
 theme = "congo"
-baseURL = "https://genevievecurry.github.io/portfolio-23/"
+baseURL = "https://genevievecurry.github.io/wordle/"
 defaultContentLanguage = "en"
 
 enableRobotsTXT = true
