@@ -68,6 +68,31 @@
                     {{ end }}
                   </span>
                 </button>
+              {{ else if eq .Params.action "guesses" }}
+                {{ $.Scratch.Add "switchCount" 1 }}
+                <button
+                  id="guess-toggle-{{ $.Scratch.Get "switchCount" }}"
+                  type="button"
+                  aria-label="guess visibility toggle"
+                >
+                  <span
+                  class="hidden group-[.show-guesses]:inline transition-colors group-dark:hover:text-primary-400 group-hover:text-primary-600"
+                  title="Hide guesses and solution on list pages"
+                  >
+                    {{ with .Params.icon | default "eye" }}
+                      {{ partial "icon.html" . }}
+                    {{ end }}
+                  </span>
+                  <span
+                    
+                    class="inline group-[.show-guesses]:hidden transition-colors group-dark:hover:text-primary-400 group-hover:text-primary-600"
+                    title="Reveal guesses and solution on list pages"
+                  >
+                    {{ with .Params.icon | default "eyeslash" }}
+                      {{ partial "icon.html" . }}
+                    {{ end }}
+                  </span>
+                </button>
               {{ else }}
                 <a
                   href="{{ .URL }}"

@@ -26,6 +26,18 @@
 # weight = 30
 
 [[main]]
+identifier = "guesses"
+weight = 97
+[main.params]
+action = "guesses"
+
+[[main]]
+identifier = "appearance"
+weight = 98
+[main.params]
+action = "appearance"
+
+[[main]]
 identifier = "search"
 weight = 99
 [main.params]

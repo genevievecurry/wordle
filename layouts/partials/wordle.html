@@ -4,27 +4,28 @@
 
 {{ $solution := index (last 1 $guesses) 0 }}
 {{ $remaining := (len $guesses) | sub 6 }}
+{{ $delay := slice "delay-0" "delay-100" "delay-200" "delay-300" "delay-[400ms]" "delay-500" }}
 
-<div class="wordle-grid">
+<div class="group/wordle-grid">
   <div class="grid gap-1 font-bold uppercase place-content-start">
-  {{ range $guesses }}
-    {{ $word := split . "" }}
+  {{ range $guessIndex, $guess := $guesses }}
+    {{ $word := split $guess "" }}
     <div class="grid grid-cols-5 gap-1">
       {{ range $letter_index, $letter := $word }}
         {{ if in $solution $letter }}
           {{ $solution_letters := split $solution "" }}
           {{ if eq (index $solution_letters $letter_index) $letter}}
-          <div class="flex items-center justify-center w-8 h-8 rounded-sm bg-primary-500 text-secondary-50">
-            <span class="invisible group-[.article]:visible group-hover:visible">{{ $letter }}</span>
-          </div>
+            <div class="flex items-center justify-center w-8 h-8 rounded-sm bg-primary-500 text-secondary-50">
+              <span class="opacity-0 group-[.show-guesses]:opacity-100 group-hover/wordle-grid:opacity-100 transition-opacity {{ index $delay $guessIndex}}">{{ $letter }}</span>
+            </div>
           {{ else }}
             <div class="flex items-center justify-center w-8 h-8 rounded-sm bg-secondary-500 text-secondary-50">
-              <span class="invisible group-[.article]:visible group-hover:visible">{{ $letter }}</span>
+              <span class="opacity-0 group-[.show-guesses]:opacity-100 group-hover/wordle-grid:opacity-100 transition-opacity {{ index $delay $guessIndex}}">{{ $letter }}</span>
             </div>
           {{ end }}
         {{ else }}
           <div class="flex items-center justify-center w-8 h-8 rounded-sm bg-neutral-600 text-neutral-50">
-            <span class="invisible group-[.article]:visible group-hover:visible">{{ $letter }}</span>
+            <span class="opacity-0 group-[.show-guesses]:opacity-100 group-hover/wordle-grid:opacity-100 transition-opacity {{ index $delay $guessIndex}}">{{ $letter }}</span>
           </div>
         {{ end }}
       {{ end }}

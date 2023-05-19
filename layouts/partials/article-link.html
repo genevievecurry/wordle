@@ -71,20 +71,18 @@
           />
         </a>
       </div>
-      <div class="pl-4 group is-hidden max-[400px]:hidden">
-        <a class="flex h-full"
-          href="{{ with $.Params.externalUrl }}
-            {{ . }}
-          {{ else }}
-            {{ $.RelPermalink }}
-          {{ end }}"
-          aria-label="{{ $.Title | emojify }}"
-        >
-          {{ with $.Params.guesses }}
-            {{ partial "wordle.html" . }}
-          {{ end }}
-        </a>
-      </div>
+      <a class="flex h-full pl-4 group max-[400px]:hidden"
+        href="{{ with $.Params.externalUrl }}
+          {{ . }}
+        {{ else }}
+          {{ $.RelPermalink }}
+        {{ end }}"
+        aria-label="{{ $.Title | emojify }}"
+      >
+        {{ with $.Params.guesses }}
+          {{ partial "wordle.html" . }}
+        {{ end }}
+      </a>
     </div>
   {{- end }}
 </article>
