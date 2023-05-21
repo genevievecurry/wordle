@@ -7,7 +7,7 @@ baseURL = "https://wordle-illustrated.netlify.app/"
 defaultContentLanguage = "en"
 
 enableRobotsTXT = true
-paginate = 10
+paginate = 12
 summaryLength = 0
 
 [outputs]
