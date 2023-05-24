@@ -11,4 +11,4 @@ I couldn't resist this variation, it's sort of flask-adjacent (I can see how the
 
 Those cheekbones? That hairline?
 
-![Four AI interpretations of the 'wreck, storm, shorn' prompt.](sting.jpg "The musician, [Sting](https://en.wikipedia.org/wiki/Sting_(musician))")
+![A black and white photograph of the musician, Sting.](sting.jpg "The musician, [Sting](https://en.wikipedia.org/wiki/Sting_(musician))")
