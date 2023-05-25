@@ -3,7 +3,7 @@ title: "#699: Grief"
 listTitle: "Wordle 699 5/6*"
 date: 2023-05-19
 coverCaption: "Prompt: `evade, white, plies, frier, grief --v 5.1`"
-tags: ["Wordle", "Midjourney"]
+tags: ["--v 5.1", "blog"]
 guesses: "evade, white, plies, frier, grief"
 ---
 

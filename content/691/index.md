@@ -3,7 +3,7 @@ title: "#691"
 listTitle: "Wordle 691 4/6*"
 date: 2023-05-11
 coverCaption: "Prompt: `husky, react, grind, broom --niji 5 --style cute`"
-tags: ["Wordle", "Midjourney"]
+tags: ["--niji 5", "--style cute", "blog"]
 guesses: "husky, react, grind, broom"
 ---
 

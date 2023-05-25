@@ -16,7 +16,7 @@
             {{ .Key }}
           </h2>
           <hr class="border-dotted w-36 border-neutral-400" />
-          <div class="grid gap-4 mt-4 min-[401px]:grid-cols-[repeat(auto-fit,_minmax(360px,_1fr))] grid-flow-dense">
+          <div class="grid gap-4 mt-4 min-[401px]:grid-cols-[repeat(auto-fit,_minmax(360px,_1fr))] grid-flow-dense max-w-[2300px]">
             {{ range .Pages }}
               {{ partial "article-link.html" . }}
             {{ end }}

@@ -3,7 +3,7 @@ title: "#704: Utter"
 listTitle: "Wordle 704 4/6*"
 date: 2023-05-24
 coverCaption: "Prompt: `feral, resin, brute, utter --v 5.1`"
-tags: ["Wordle", "Midjourney"]
+tags: ["--v 5.1", "blog"]
 guesses: "feral, resin, brute, utter"
 ---
 

@@ -11,7 +11,7 @@ cascade:
   showWordCount: false
   articleGrid: true
   showSummary: false
-  showTaxonomies: false
+  showTaxonomies: true
 ---
 
 A collection of daily [Wordle](https://www.nytimes.com/games/wordle) puzzles, solved by me and illustrated by [Midjourney](https://www.midjourney.com), using each of my guesses as a prompt.

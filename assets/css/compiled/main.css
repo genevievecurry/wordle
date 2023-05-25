@@ -2023,6 +2023,10 @@ body:has(#menu-controller:checked) {
   max-width: 10rem;
 }
 
+.max-w-\[2300px\] {
+  max-width: 2300px;
+}
+
 .max-w-\[6rem\] {
   max-width: 6rem;
 }
@@ -3039,6 +3043,10 @@ body:has(#menu-controller:checked) {
 
   .min-\[401px\]\:grid-cols-\[repeat\(auto-fit\2c _minmax\(360px\2c _1fr\)\)\] {
     grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  }
+
+  .min-\[401px\]\:grid-cols-\[repeat\(auto-fit\2c _minmax\(360px\2c _547px\)\)\] {
+    grid-template-columns: repeat(auto-fit, minmax(360px, 547px));
   }
 }
 

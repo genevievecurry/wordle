@@ -3,7 +3,7 @@ title: "#698: Shorn"
 listTitle: "Wordle 698 3/6*"
 date: 2023-05-18
 coverCaption: "Prompt: `wreck, storm, shorn --v 5.1`"
-tags: ["Wordle", "Midjourney"]
+tags: ["--v 5.1", "blog"]
 guesses: "wreck, storm, shorn"
 ---
 

@@ -1,0 +1,47 @@
+{{ define "main" }}
+  <header>
+    {{ if .Params.showBreadcrumbs | default (.Site.Params.list.showBreadcrumbs | default false) }}
+      {{ partial "breadcrumbs.html" . }}
+    {{ end }}
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">{{ .Title }}</h1>
+  </header>
+  {{ if .Content }}
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      <div class="min-w-0 min-h-0 max-w-prose grow">
+        {{ .Content | emojify }}
+      </div>
+    </section>
+  {{ end }}
+  <section>
+    {{ if .Data.Pages }}
+      <section>
+        {{ if $.Params.groupByYear | default ($.Site.Params.list.groupByYear | default true) }}
+          {{ range (.Paginate (.Pages.GroupByDate "2006")).PageGroups }}
+            <h2 class="mt-12 text-2xl font-bold text-neutral-700 first:mt-8 dark:text-neutral-300">
+              {{ .Key }}
+            </h2>
+            <hr class="border-dotted w-36 border-neutral-400" />
+            <div class="grid gap-4 mt-4 min-[401px]:grid-cols-[repeat(auto-fit,_minmax(360px,_1fr))] grid-flow-dense max-w-[2300px]">
+              {{ range .Pages }}
+                {{ partial "article-link.html" . }}
+              {{ end }}
+            </div>
+          {{ end }}
+        {{ else }}
+          <div class="grid gap-4 mt-4 min-[401px]:grid-cols-[repeat(auto-fit,_minmax(360px,_1fr))] grid-flow-dense max-w-[2300px]">
+            {{ range (.Paginate .Pages).Pages }}
+              {{ partial "article-link.html" . }}
+            {{ end }}
+          </div>
+        {{ end }}
+      </section>
+      {{ partial "pagination.html" . }}
+    {{ else }}
+      <section class="mt-10 prose dark:prose-invert">
+        <p class="py-8 border-t">
+          <em>{{ i18n "list.no_articles" | emojify }}</em>
+        </p>
+      </section>
+    {{ end }}
+  </section>
+{{ end }}
