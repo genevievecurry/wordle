@@ -27,7 +27,7 @@
             {{- (.Resize "330x webp").RelPermalink }} 330w,
             {{- (.Resize "660x webp").RelPermalink }} 660w,
             {{- (.Resize "1024x webp").RelPermalink }} 1024w,
-            {{- (.Resize "1024x webp").RelPermalink }} 2x"
+            {{- (.Resize "1024x webp").RelPermalink }} 1x"
             src="{{ (.Resize "660x webp q100").RelPermalink }}"
           {{ end }}
         {{ end }}
