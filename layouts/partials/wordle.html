@@ -1,14 +1,24 @@
 {{/* A simple way to render Wordle guesses that looks like the mobile app. */}}
 
 {{ $guesses := split . ", " }}
-
+{{ $failed := (len $guesses) | eq 7 }}
 {{ $solution := index (last 1 $guesses) 0 }}
 {{ $remaining := (len $guesses) | sub 6 }}
+
+{{ if $failed }}
+  {{ $remaining = 0 }}
+{{ end }}
+
 {{ $delay := slice "delay-0" "delay-100" "delay-200" "delay-300" "delay-[400ms]" "delay-500" }}
 
-<div class="group/wordle-grid">
-  <div class="grid gap-1 font-bold uppercase place-content-start">
-  {{ range $guessIndex, $guess := $guesses }}
+<div class=" group/wordle-grid">
+  <div class="relative grid gap-1 font-bold uppercase place-content-start">
+    {{ if $failed }}
+      <div class="absolute px-2 text-sm font-black uppercase -translate-x-1/2 -translate-y-1/2 border rounded-sm border-neutral-500 -top-1 bg-neutral-100 text-neutral-800 left-1/2 opacity-0 group-[.show-guesses]:opacity-100 group-hover/wordle-grid:opacity-100 transition-opacity delay-[700ms]">
+        {{ $solution }}
+      </div>
+    {{ end }}
+  {{ range $guessIndex, $guess := first 6 $guesses }}
     {{ $word := split $guess "" }}
     <div class="grid grid-cols-5 gap-1">
       {{ range $letter_index, $letter := $word }}

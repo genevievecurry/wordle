@@ -1691,12 +1691,20 @@ body:has(#menu-controller:checked) {
   inset-inline-start: -1.5rem;
 }
 
+.-top-1 {
+  top: -0.25rem;
+}
+
 .bottom-0 {
   bottom: 0px;
 }
 
 .end-0 {
   inset-inline-end: 0px;
+}
+
+.left-1\/2 {
+  left: 50%;
 }
 
 .top-0 {
@@ -2051,6 +2059,16 @@ body:has(#menu-controller:checked) {
   flex-grow: 1;
 }
 
+.-translate-x-1\/2 {
+  --tw-translate-x: -50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.-translate-y-1\/2 {
+  --tw-translate-y: -50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
 .-translate-y-8 {
   --tw-translate-y: -2rem;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -2216,6 +2234,11 @@ body:has(#menu-controller:checked) {
 .border-neutral-400 {
   --tw-border-opacity: 1;
   border-color: rgba(var(--color-neutral-400), var(--tw-border-opacity));
+}
+
+.border-neutral-500 {
+  --tw-border-opacity: 1;
+  border-color: rgba(var(--color-neutral-500), var(--tw-border-opacity));
 }
 
 .border-primary-400 {
@@ -2487,6 +2510,10 @@ body:has(#menu-controller:checked) {
   line-height: 1rem;
 }
 
+.font-black {
+  font-weight: 900;
+}
+
 .font-bold {
   font-weight: 700;
 }
@@ -2665,6 +2692,10 @@ body:has(#menu-controller:checked) {
 
 .delay-\[400ms\] {
   transition-delay: 400ms;
+}
+
+.delay-\[700ms\] {
+  transition-delay: 700ms;
 }
 
 :is(.dark .dark\:prose-invert) {
@@ -3043,10 +3074,6 @@ body:has(#menu-controller:checked) {
 
   .min-\[401px\]\:grid-cols-\[repeat\(auto-fit\2c _minmax\(360px\2c _1fr\)\)\] {
     grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-  }
-
-  .min-\[401px\]\:grid-cols-\[repeat\(auto-fit\2c _minmax\(360px\2c _547px\)\)\] {
-    grid-template-columns: repeat(auto-fit, minmax(360px, 547px));
   }
 }
 
