@@ -11,11 +11,11 @@
   {{ if .Data.Pages }}
     <section>
       {{ if $.Params.groupByYear | default ($.Site.Params.list.groupByYear | default true) }}
-        {{ range (.Paginate (.Pages.GroupByDate "Jan, 2006")).PageGroups }}
+        {{ range (.Paginate (.Pages.GroupByDate "January, 2006")).PageGroups }}
           <h2 class="mt-12 text-2xl font-bold text-neutral-700 first:mt-8 dark:text-neutral-300">
             {{ .Key }}
           </h2>
-          <hr class="border-dotted w-36 border-neutral-400" />
+          <hr />
           <div class="grid gap-4 mt-4 min-[401px]:grid-cols-[repeat(auto-fit,_minmax(360px,_1fr))] grid-flow-dense max-w-[2300px]">
             {{ range .Pages }}
               {{ partial "article-link.html" . }}
