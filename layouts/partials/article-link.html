@@ -64,9 +64,9 @@
               class="w-24 max-w-[6rem] max-h-[6rem] rounded-sm sm:max-h-[10rem] sm:w-40
               sm:max-w-[10rem]" src="{{ .RelPermalink }}"
             {{ else }}
-              class="object-cover w-full h-full rounded-sm" srcset="{{- (.Fill "160x160 smart").RelPermalink }}
-              160w, {{- (.Fill "500x500 smart").RelPermalink }} 2x"
-              src="{{ (.Fill "160x160 smart").RelPermalink }}"
+              class="object-cover w-full h-full rounded-sm" srcset="{{- (.Fill "160x160 center").RelPermalink }}
+              160w, {{- (.Fill "500x500 center").RelPermalink }} 2x"
+              src="{{ (.Fill "160x160 center").RelPermalink }}"
             {{ end }}
           />
         </a>
@@ -79,8 +79,12 @@
         {{ end }}"
         aria-label="{{ $.Title | emojify }}"
       >
-        {{ with $.Params.guesses }}
-          {{ partial "wordle.html" . }}
+        {{ with $.Params.wordle }}
+          {{ partial "wordle-grid.html" . }}
+        {{ else }}
+          {{ with $.Params.guesses }}
+            {{ partial "wordle-old.html" . }}
+          {{ end }}
         {{ end }}
       </a>
     </div>

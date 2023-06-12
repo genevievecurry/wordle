@@ -41,13 +41,23 @@
               <figcaption class="mb-6 -mt-3 text-center">{{ . | markdownify }}</figcaption>
             {{ end }}
           </div>
+
+        {{ with $.Params.wordle }}
+          <div class="mb-6 max-w-prose">
+            <div class="flex flex-col py-4 m-auto lg:m-0 lg:px-4 lg:py-0 group show-guesses sm:flex-row lg:flex-col xl:flex-row ">
+              {{ partial "wordle-grid.html" . }}
+              {{ partial "wordle-rundown.html" $.Params }}
+            </div>
+          </div>
+        {{ else }}
           {{ with $.Params.guesses }}
             <div class="max-w-prose">
-              <div class="w-[212px] py-4 m-auto lg:m-0 lg:px-4 lg:py-0 group show-guesses">
-                {{ partial "wordle.html" . }}
+              <div class="py-4 m-auto lg:m-0 lg:px-4 lg:py-0 group show-guesses">
+                {{ partial "wordle-old.html" . }}
               </div>
             </div>
           {{ end }}
+        {{ end }}
         </div>
       {{ end }}
     </header>
@@ -59,9 +69,11 @@
           </div>
         </div>
       {{ end }}
-      <div class="min-w-0 min-h-0 grow max-w-prose">
-        {{ .Content | emojify }}
-      </div>
+      {{ if .Content}}
+        <div class="min-w-0 min-h-0 border-t grow max-w-prose lg:border-none">
+          {{ .Content | emojify }}
+        </div>
+      {{ end }}
     </section>
     <footer class="pt-8 print:hidden">
       {{ partial "author.html" . }}
