@@ -67,6 +67,9 @@ excludedKinds = ["taxonomy", "term"]
 [taxonomy]
 showTermCount = true
 
+[umamiAnalytics]
+id = "69836448-977c-4b3b-90a2-4a0818b297cd"
+
 [fathomAnalytics]
 # site = "ABC12345"
 # domain = "llama.yoursite.com"
