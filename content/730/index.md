@@ -19,7 +19,7 @@ wordle:
   }
 ---
 
-This puzzle was a little rough on me. I share my "censored" wordle solutions with a group of friends on Discord, and one of them wrote "This one made me feel like I went on a short walk that was twisty and turny but I got a treat at the end."
+This puzzle was a little rough on me. I share my "censored" wordle solutions with a group of friends on Discord, and one of them wrote about her puzzle solving experience: "This one made me feel like I went on a short walk that was twisty and turny but I got a treat at the end."
 
 That experience sounded really nice as I flipped back to my unsolved puzzle, which felt more like moving a couch upstairs to a fifth-floor walk up.
 
