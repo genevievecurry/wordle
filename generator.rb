@@ -21,10 +21,10 @@ end
 def tags(prompt, blog)
   tags = prompt.scan(/--\w+ \w+/)
 
-  # Fix 5.1 prompt instead of actually learning regex
+  # Fix 5.2 prompt instead of actually learning regex
   if prompt.include? "--v 5"
     index = tags.index("--v 5")
-    tags[index] = "--v 5.1"
+    tags[index] = "--v 5.2"
   end
 
   if guess_words(prompt).size > 6
