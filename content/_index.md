@@ -14,7 +14,7 @@ cascade:
   showTaxonomies: true
 ---
 
-A collection of daily [Wordle](https://www.nytimes.com/games/wordle) puzzles, solved by me and illustrated by [Midjourney](https://www.midjourney.com), using each of my guesses as a prompt.
+A collection of daily [Wordle](https://www.nytimes.com/games/wordle) puzzles, solved by me and illustrated by [Midjourney](https://www.midjourney.com), using each of my guesses as a prompt. Updated a few times per week.
 
 {{< button id="guess-toggle">}}
 Toggle guess visibility

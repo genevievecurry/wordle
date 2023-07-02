@@ -20,6 +20,9 @@
             {{ range .Pages }}
               {{ partial "article-link.html" . }}
             {{ end }}
+            {{ range seq (sub 3 (mod (len .Pages) 3)) }}
+              <div></div>
+            {{ end }}
           </div>
         {{ end }}
       {{ else }}
