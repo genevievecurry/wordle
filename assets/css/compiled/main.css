@@ -2060,6 +2060,14 @@ body:has(#menu-controller:checked) {
   max-width: 65ch;
 }
 
+.max-w-\[1300px\] {
+  max-width: 1300px;
+}
+
+.max-w-\[1400px\] {
+  max-width: 1400px;
+}
+
 .flex-auto {
   flex: 1 1 auto;
 }
