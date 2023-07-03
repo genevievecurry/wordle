@@ -11,55 +11,58 @@
         {{ .Title | emojify }}
       </h1>
       {{ if .Params.showMeta | default (.Site.Params.article.showMeta | default true) }}
-        <div class="mt-8 mb-12 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        <div class="mt-8 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
           {{ partial "article-meta.html" (dict "context" . "scope" "single") }}
         </div>
       {{ else }}
         <div class="my-3"></div>
       {{ end }}
-      {{ with $feature }}
-        <div class="lg:flex">
-          <div class="prose">
-            <img
-              class="mb-6 rounded-sm"
-              {{ if eq .MediaType.SubType "svg" }}
-                src="{{ .RelPermalink }}"
-              {{ else }}
-                {{ if lt .Width 660 }}
+
+      <div class="relative lg:flex">
+        {{ partial "alt-pagination.html" . }}
+        {{ with $feature }}
+            <div class="prose">
+              <img
+                class="mb-6 rounded-sm"
+                {{ if eq .MediaType.SubType "svg" }}
                   src="{{ .RelPermalink }}"
                 {{ else }}
-                  srcset="
-                  {{- (.Resize "330x webp").RelPermalink }} 330w,
-                  {{- (.Resize "660x webp").RelPermalink }} 660w,
-                  {{- (.Resize "1024x webp").RelPermalink }} 1024w,
-                  {{- (.Resize "1024x webp").RelPermalink }} 1x"
+                  {{ if lt .Width 660 }}
+                    src="{{ .RelPermalink }}"
+                  {{ else }}
+                    srcset="
+                    {{- (.Resize "330x webp").RelPermalink }} 330w,
+                    {{- (.Resize "660x webp").RelPermalink }} 660w,
+                    {{- (.Resize "1024x webp").RelPermalink }} 1024w,
+                    {{- (.Resize "1024x webp").RelPermalink }} 1x"
+                  {{ end }}
                 {{ end }}
+                alt="{{ $.Params.featureAlt | default $.Params.coverAlt | default "" }}"
+              />
+              {{ with $.Params.coverCaption }}
+                <figcaption class="mb-6 -mt-3 text-center">{{ . | markdownify }}</figcaption>
               {{ end }}
-              alt="{{ $.Params.featureAlt | default $.Params.coverAlt | default "" }}"
-            />
-            {{ with $.Params.coverCaption }}
-              <figcaption class="mb-6 -mt-3 text-center">{{ . | markdownify }}</figcaption>
-            {{ end }}
-          </div>
-
-        {{ with $.Params.wordle }}
-          <div class="mb-6 max-w-prose">
-            <div class="flex flex-col py-4 m-auto lg:m-0 lg:px-4 lg:py-0 group show-guesses sm:flex-row lg:flex-col xl:flex-row ">
-              {{ partial "wordle-grid.html" . }}
-              {{ partial "wordle-rundown.html" $.Params }}
             </div>
-          </div>
-        {{ else }}
-          {{ with $.Params.guesses }}
-            <div class="max-w-prose">
-              <div class="py-4 m-auto lg:m-0 lg:px-4 lg:py-0 group show-guesses">
-                {{ partial "wordle-old.html" . }}
+
+          {{ with $.Params.wordle }}
+            <div class="mb-6 max-w-prose">
+              <div class="flex flex-col py-4 m-auto lg:m-0 lg:px-4 lg:py-0 group show-guesses sm:flex-row lg:flex-col xl:flex-row ">
+                {{ partial "wordle-grid.html" . }}
+                {{ partial "wordle-rundown.html" $.Params }}
               </div>
             </div>
+          {{ else }}
+            {{ with $.Params.guesses }}
+              <div class="max-w-prose">
+                <div class="py-4 m-auto lg:m-0 lg:px-4 lg:py-0 group show-guesses">
+                  {{ partial "wordle-old.html" . }}
+                </div>
+              </div>
+            {{ end }}
           {{ end }}
         {{ end }}
-        </div>
-      {{ end }}
+      </div>
+      
     </header>
     <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
       {{ if and (.Params.showTableOfContents | default (.Site.Params.article.showTableOfContents | default false)) (in .TableOfContents "<ul") }}

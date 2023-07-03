@@ -1,0 +1,35 @@
+{{ if .Params.showPagination | default (.Site.Params.article.showPagination | default true) }}
+  {{ if or .NextInSection .PrevInSection }}
+    {{ $next := .NextInSection }}
+    {{ $prev := .PrevInSection }}
+    {{ if .Params.invertPagination | default (.Site.Params.article.invertPagination | default false) }}
+      {{ $next = .PrevInSection }}
+      {{ $prev = .NextInSection }}
+    {{ end }}
+    <div class="flex justify-between">
+      {{ if $prev }}
+        <div class="left-0 lg:-translate-x-full lg:absolute">
+          <a class="flex group" href="{{ $prev.RelPermalink }}" title="Previous Day: {{ $prev.Title | emojify }}">
+            <span
+              class="me-2 text-neutral-700 transition-transform group-hover:-translate-x-[2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
+              ><span class="ltr:inline rtl:hidden">&larr;</span
+              ><span class="ltr:hidden rtl:inline">&rarr;</span></span
+            >
+          </a>
+        </div>
+      {{ end }}
+
+      {{ if $next }}
+        <div class="right-0 lg:translate-x-full lg:absolute">
+          <a class="flex group" href="{{ $next.RelPermalink }}" title="Next Day: {{ $next.Title | emojify }}">
+            <span
+              class="me-2 text-neutral-700 transition-transform group-hover:-translate-x-[2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
+              ><span class="ltr:inline rtl:hidden">&rarr;</span
+              ><span class="ltr:hidden rtl:inline">&larr;</span></span
+            >
+          </a>
+        </div>
+      {{ end }}
+    </div>
+  {{ end }}
+{{ end }}
