@@ -3,8 +3,16 @@ title: "#709: Mouse"
 listTitle: "Wordle 709 2/6*"
 date: 2023-05-29
 coverCaption: "Prompt: `plate, mouse --v 5.1`"
-tags: ["--v 5.1", "--niji 5", "blog"]
-guesses: "plate, mouse"
+tags: ["--v 5.1", "--niji 5", "blog", "good bot"]
+wordle:
+  {
+    "number": 709,
+    "guesses":
+      [
+        { "word": "mouse", "represented": true },
+        { "word": "plate", "represented": true },
+      ],
+  }
 ---
 
 This one is JUST SO CUTE. Even with the bonus tail.

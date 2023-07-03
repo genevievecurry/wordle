@@ -18,7 +18,7 @@ def guess_words(prompt)
   end
 end
 
-def tags(prompt, blog)
+def tags(prompt, blog, yes_count)
   tags = prompt.scan(/--\w+ \w+/)
 
   # Fix 5.2 prompt instead of actually learning regex
@@ -34,6 +34,10 @@ def tags(prompt, blog)
   if blog == "y" || blog == "yes"
     tags.push("blog")
   end
+
+  if guess_words(prompt).size == yes_count
+    tags.push("good bot")
+  end
   
   tags
 end
@@ -42,13 +46,16 @@ def wordle_map(wordle_number, prompt)
   map = {
     number: wordle_number,
     guesses: [],
+    yes_count: 0,
   }
 
   guess_words(prompt).each do |word|
     print "Did the MidJourney image represent #{word.upcase}? (y/n) \n>> "
     answer = gets.chomp
+    
     if answer == "y" || answer == "yes"
       map[:guesses].push({word: word.strip, represented: true})
+      map[:yes_count] += 1
     elsif answer == "n" || answer == "no"
       map[:guesses].push({word: word.strip, represented: false})
     else
@@ -94,7 +101,7 @@ File.open(file_path , 'w+') do |file|
   file.write("listTitle: \"Wordle #{wordle_number} #{score(wordle_map)}/6*\"" + "\n")
   file.write("date: #{wordle_date(wordle_number)}" + "\n")
   file.write("coverCaption: \"Prompt: `#{prompt}`\"" + "\n")
-  file.write("tags: #{tags(prompt, blog)}" + "\n")
+  file.write("tags: #{tags(prompt, blog, wordle_map[:yes_count])}" + "\n")
   file.write("wordle: #{wordle_map.to_json}" + "\n")
   file.write("---" + "\n")
   file.write("")

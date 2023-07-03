@@ -4,7 +4,7 @@ prompt: "burnt, crane, grand --v 5.2"
 listTitle: "Wordle 735 3/6*"
 date: 2023-06-24
 coverCaption: "Prompt: `burnt, crane, grand --v 5.2`"
-tags: ["--v 5.2"]
+tags: ["--v 5.2", "good bot"]
 wordle:
   {
     "number": 735,
