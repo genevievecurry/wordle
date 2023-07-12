@@ -3,7 +3,7 @@ title: "#710: Kneel"
 listTitle: "Wordle 710 4/6*"
 date: 2023-05-30
 coverCaption: "Prompt: `thick, spoke, geeky, kneel --niji 5 --style scenic`"
-tags: ["--v 5.1", "--niji 5", "--style scenic", "blog"]
+tags: ["--v 5.1", "--niji 5", "--style scenic", "blog", "bad bot"]
 guesses: "thick, spoke, geeky, kneel"
 ---
 
