@@ -27,16 +27,24 @@ def tags(prompt, blog, yes_count)
     tags[index] = "--v 5.2"
   end
 
+  # Add "failed" tag if user failed to guess the wordle answer
   if guess_words(prompt).size > 6
     tags.push("failed")
   end
 
+  # Add "blog" tag if user is going to write a blog post about this Wordle
   if blog == "y" || blog == "yes"
     tags.push("blog")
   end
 
+  # Add "good bot" tag if all guesses were represented correctly
   if guess_words(prompt).size == yes_count
     tags.push("good bot")
+  end
+
+  # Add "bad bot" tag if no guesses were represented correctly (or some maybes)
+  if yes_count == 0
+    tags.push("bad bot")
   end
   
   tags
@@ -70,9 +78,26 @@ def score(wordle_map)
   wordle_map[:guesses].size > 6 ? "X" : wordle_map[:guesses].size.to_s
 end
 
+def guess_current_wordle_number
+  number = Dir.chdir('./content') do
+    Dir.glob('*').select { |f| File.directory? f }
+  end
+  
+  number = number.each { |dir| dir.gsub!(/\D/, '') }.max.to_i
+
+  number + 1
+end
+
 ## USER INPUT
-print "What is the wordle number? \n>> "
-wordle_number = gets.chomp.to_i
+print "Is the Wordle number #{guess_current_wordle_number}? (y/n) \n>> "
+initial_wordle_answer = gets.chomp
+
+if initial_wordle_answer == "y" || initial_wordle_answer == "yes"
+  wordle_number = guess_current_wordle_number
+else
+  print "What is the Wordle number? \n>> "
+  wordle_number = gets.chomp.to_i
+end
 
 ## USER INPUT
 ## prompt example: "music, tread, wrong --niji 5 --style expressive"
