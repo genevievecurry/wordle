@@ -24,7 +24,7 @@ On a lark, I decided to feed a description of this image to [ChatGPT](https://ch
 
 > This image depicts a majestic castle situated on the edge of a body of water, with smoke billowing out from its depths. The castle is surrounded by lush green foliage and rocky terrain, while in the background there are clouds and fog rolling across the sky. In front of the castle stands an old wooden house with a light atop it, as well as a bridge connecting two balconies. On one side of the building is a sign that reads "Welcome". To complete this scene, there is also an intricate swirl pattern painted onto one wall near the entrance to add some extra detail. All together this creates an atmosphere that conveys both mystery and grandeur at once.
 
-While this was interesting, the short story is way too long, and not a particularly interesting read. What _is_ interesting is how easy it is to use these tools to generate a high volume of fairly pointless content with very little input.
+While this was interesting, the short story is way too long, and not a particularly captivating read. What _is_ interesting is how easy it is to use these tools to generate a high volume of fairly pointless content with very little input.
 
 Here is the story:
 
