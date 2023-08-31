@@ -26,11 +26,11 @@
           {{ if in $solution $letter }}
             {{ $solution_letters := split $solution "" }}
             {{ if eq (index $solution_letters $letter_index) $letter}}
-              <div class="flex items-center justify-center w-8 h-8 rounded-sm bg-primary-500 text-secondary-50">
+              <div class="flex items-center justify-center w-8 h-8 rounded-sm bg-secondary-500 text-secondary-50">
                 <span class="opacity-0 group-[.show-guesses]:opacity-100 group-hover/wordle-grid:opacity-100 transition-opacity {{ index $delay $guessIndex}}">{{ $letter }}</span>
               </div>
             {{ else }}
-              <div class="flex items-center justify-center w-8 h-8 rounded-sm bg-secondary-500 text-secondary-50">
+              <div class="flex items-center justify-center w-8 h-8 rounded-sm bg-primary-500 text-secondary-50">
                 <span class="opacity-0 group-[.show-guesses]:opacity-100 group-hover/wordle-grid:opacity-100 transition-opacity {{ index $delay $guessIndex}}">{{ $letter }}</span>
               </div>
             {{ end }}
